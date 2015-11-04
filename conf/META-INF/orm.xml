@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings version="2.0"
+	xmlns="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_2_0.xsd">
+
+	<!-- MODEL: ABSTRACT -->
+
+	<mapped-superclass class="sonic.GenericModel">
+		<attributes>
+			<id name="id">
+				<column name="id" nullable="false" unique="true" />
+				<generated-value strategy="IDENTITY" />
+			</id>
+		</attributes>
+	</mapped-superclass>
+
+	<entity class="sonic.application.model.Application">
+		<table name="application" />
+		<attributes>
+			<basic name="name">
+				<column name="name" />
+			</basic>
+			<basic name="redirectUri">
+				<column name="redirect_uri" />
+			</basic>
+			<basic name="keyId">
+				<column name="key_id" />
+			</basic>
+			<basic name="keySecret">
+				<column name="key_secret" />
+			</basic>
+			<basic name="xAccess">
+				<column name="x_access" />
+			</basic>
+			<basic name="timeOut">
+				<column name="time_out" />
+			</basic>
+			<element-collection name="scopesByFi" fetch="EAGER">
+				<map-key-enumerated>STRING</map-key-enumerated>
+				<map-key-column name="fournisseur_identite" />
+				<column name="scopes" />
+				<collection-table name="application_fi_scopes">
+					<join-column name="application_id" />
+				</collection-table>
+			</element-collection>
+		</attributes>
+	</entity>
+
+	<entity class="sonic.oidc.code.model.Code">
+		<table name="code" />
+		<attributes>
+			<basic name="accessToken">
+				<column name="access_token" />
+			</basic>
+			<basic name="code">
+				<column name="code" />
+			</basic>
+		</attributes>
+	</entity>
+
+	<entity class="sonic.oidc.idtoken.model.IdToken">
+		<table name="idtoken" />
+		<attributes>
+			<basic name="accessToken">
+				<column name="access_token" />
+			</basic>
+			<basic name="aud">
+				<column name="aud" />
+			</basic>
+			<basic name="email">
+				<column name="email" />
+			</basic>
+			<basic name="exp">
+				<column name="exp" />
+			</basic>
+			<basic name="iat">
+				<column name="iat" />
+			</basic>
+			<basic name="iss">
+				<column name="iss" />
+			</basic>
+			<basic name="nom">
+				<column name="nom" />
+			</basic>
+			<basic name="prenom">
+				<column name="prenom" />
+			</basic>
+			<basic name="sub">
+				<column name="sub" />
+			</basic>
+			<element-collection name="scopeData" fetch="EAGER">
+				<map-key-column name="key" />
+				<column name="value" />
+				<collection-table name="idtoken_scope_data">
+					<join-column name="idtoken_id" />
+				</collection-table>
+			</element-collection>
+		</attributes>
+	</entity>
+
+	<entity class="sonic.oidc.token.model.Token">
+		<table name="token" />
+		<attributes>
+			<basic name="accessToken">
+				<column name="access_token" />
+			</basic>
+			<basic name="exp">
+				<column name="exp" />
+			</basic>
+			<basic name="idToken">
+				<column name="id_token" />
+			</basic>
+			<basic name="provider">
+				<column name="provider" />
+			</basic>
+			<basic name="tokenType">
+				<column name="token_type" />
+			</basic>
+		</attributes>
+	</entity>
+
+</entity-mappings>

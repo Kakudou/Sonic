@@ -1,0 +1,32 @@
+@(scopes: List[String])
+
+@import apiweb.view.html._
+@import play.i18n._
+
+@base(){
+	<form class="form-signin" action="@apiweb.controller.fournisseuridentite.sonic.routes.Auth.authenticateSonic" method="POST">
+	  @helper.CSRF.formField
+      <h2 class="form-signin-heading">@Messages.get("f.titreSonic")</h2>
+      	@if(!scopes.isEmpty()){
+	      <div class="alert alert-info alert-fixed-top alert-dismissable">
+	  		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+		      	@Messages.get("f.accessTo")
+		      	@for(scope <- scopes){
+		      		@Messages.get("s."+scope),
+		      	}
+		  </div>
+      	}
+      <div class="panel panel-default">
+        <div class="panel-body">
+         	<input class="form-control"  id="keyId" name="keyId" placeholder="@Messages.get("f.keyId")" type="text" autofocus required>
+	  		<input class="form-control" id="keySecret" name="keySecret" placeholder="@Messages.get("f.keySecret")" type="password" required> 
+        </div>
+        <div class="panel-footer">
+          <button class="btn btn-lg btn-primary btn-block" type="submit">@Messages.get("f.connexion")</button>
+        </div>
+        <div class="panel-footer">
+          <a class="btn btn-lg btn-primary btn-block" href="javascript:history.back()">@Messages.get("f.retour")</a>
+        </div>
+      </div>
+    </form>
+}

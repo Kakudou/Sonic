@@ -1,0 +1,63 @@
+html, body {
+    background: #efefef none repeat scroll 0 0;
+    padding: 0%;
+}
+
+.taille-logo {
+    width: 23%;
+}
+
+.login {
+    display: table;
+    height: inherit;
+    text-align: center;
+    width: 100%;
+}
+.couleur-lien {
+    color: #efefef;
+}
+.couleur-lien:hover {
+    color: grey;
+}
+.logo {
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 100%;
+}
+.taille-logo {
+    width: 23%;
+}
+.login-form-1 {
+    border-radius: 5px;
+    display: inline-block;
+    max-width: 300px;
+}
+.main-login-form {
+    position: relative;
+}
+.login-form-1 .form-control {
+    background: transparent none repeat scroll 0 0;
+    border: 0 none;
+    border-radius: 0;
+    box-shadow: 0 0 0;
+    color: #555555;
+    font-weight: bold;
+    height: auto;
+    padding: 7px 0;
+}
+.login-form-1 .form-group {
+    border-bottom: 2px solid #efefef;
+    margin-bottom: 0;
+    position: relative;
+}
+.login-form-1 .form-group:last-child {
+    border-bottom: 0 none;
+}
+.login-group {
+    background: #ffffff none repeat scroll 0 0;
+    border-radius: 8px;
+    color: #999999;
+    padding: 10px 20px;
+}

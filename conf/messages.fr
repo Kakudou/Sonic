@@ -1,0 +1,28 @@
+#SonicMain
+SonicMain = Doesn''t kill, doesn''t wound, doesn''t maim. But it is very good at opening doors
+
+#Choix FI
+f.titre = Choisir un Fournisseur d''Identité
+
+
+#FI: SSO
+f.SSO = SingleSignOn (kerberos)
+
+#Scopes: SSO
+s.faxpublic = Fax public
+s.mobile = Mobile
+s.nomcomplet = Nom complet
+s.telpublic = Téléphone public
+s.usercode = Code utilisateur
+s.userprivileges = Privilèges utilisateur
+
+#FI: Sonic
+f.SONIC = Sonic
+f.titreSonic = Formulaire Sonic
+f.keyId = Identifiant Application
+f.keySecret = Secret Application
+
+#Scope: Sonic
+s.redirecturi = RediretUri
+s.timeout = Time-Out
+s.xaccess = X-Access

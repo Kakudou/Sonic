@@ -1,0 +1,40 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+#WEB APP
+GET    /                      web.controller.sonic.Sonic.index()
+GET    /*path/                web.controller.sonic.Sonic.untrail(path: String)
+GET    /callauth              web.controller.sonic.Sonic.callauth()
+GET    /callback              web.controller.sonic.Sonic.callback()
+GET    /logout                web.controller.sonic.Sonic.logout()
+
+GET    /creation              web.controller.application.Application.creation()
+GET    /edition               web.controller.application.Application.edition()
+
+#API: Oidc
+GET    /api/v1                api.controller.oidc.Sonic.discovery()
+POST   /api/v1/token          api.controller.oidc.Sonic.token_endpoint()
+GET    /api/v1/userinfo       api.controller.oidc.Sonic.userinfo_endpoint()
+POST   /api/v1/checktoken     api.controller.oidc.Sonic.checktoken_endpoint()
+GET    /api/v1/revoke         api.controller.oidc.Sonic.revoke_endpoint()
+
+
+#API: Fournisseur Identité: Sonic
+POST   /api/v1/sonic/auth     api.controller.fournisseuridentite.sonic.Auth.auth()
+
+#API: Fournisseur Identité: SSO
+GET    /api/v1/sso/auth       api.controller.fournisseuridentite.sso.Auth.auth()
+
+#API: Application
+GET    /api/v1/application    api.controller.application.Application.getApplication()
+
+#APIWEB: Fi
+GET    /api/auth              apiweb.controller.oidc.Sonic.authorize()
+POST   /api/auth              apiweb.controller.oidc.Sonic.selectFI()
+
+#APIWEB: Sonic
+POST   /api/auth/sonic        apiweb.controller.fournisseuridentite.sonic.Auth.authenticateSonic()
+
+# Map static resources from the /public folder to the /assets URL path
+GET    /assets/*file          controllers.Assets.at(path="/public", file)

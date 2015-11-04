@@ -1,0 +1,6 @@
+{"discovery_document" : "http://localhost:9000/api/v1",
+"authorization_endpoint" : "http://localhost:9000/api/auth",
+"token_endpoint" : "http://localhost:9000/api/v1/token",
+"userinfo_endpoint" : "http://localhost:9000/api/v1/userinfo",
+"checktoken_endpoint" : "http://localhost:9000/api/v1/checktoken",
+"revoke_endpoint" : "http://localhost:9000/api/v1/revoke"}

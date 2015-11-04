@@ -1,0 +1,33 @@
+@(json: com.fasterxml.jackson.databind.JsonNode)
+
+@import play.i18n._
+
+@base(){
+	   <form action="@apiweb.controller.oidc.routes.Sonic.selectFI" method="POST">
+	   	  @helper.CSRF.formField
+	      <h2 class="form-signin-heading">@Messages.get("f.titre")</h2>
+	      <div class="panel panel-default">
+	        <div class="panel-body">
+	          <div class="btn-group-vertical btn-group-lg btn-block form-group">
+	            @for(fi <- json.elements()) {
+	            	@if(fi.asText.equals("SONIC")){
+		            	<button class='btn btn-primary' type='submit' value='@fi.asText' name='submit'>
+		            		<img height="30" src="@routes.Assets.at("images/sonic.png")"/>
+		            		@Messages.get("f."+fi.asText)
+		            	</button>
+		            	<br/>
+	          		}
+	          		@if(fi.asText.equals("SSO")){
+	          			<button class='btn btn-primary' type='submit' value='@fi.asText' name='submit'>
+		            		<img height="30" src="@routes.Assets.at("images/windows.png")"/>
+		            		@Messages.get("f."+fi.asText)
+		            	</button>
+		            	<br/>
+	          		}
+	          	}
+	          </div>
+	        </div>
+	      </div>
+    </form>
+
+}
